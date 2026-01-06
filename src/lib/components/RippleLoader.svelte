@@ -15,7 +15,7 @@
 </script>
 
 {#if loadingState}
-<div :fade={{duration: 800}} class="wrapper">
+<div class="wrapper">
     <div transition:fly={{ 
         y: flyInProps.distance, 
         duration: flyInProps.duration 
@@ -24,9 +24,10 @@
             <div class="ripple-wave" style="
             --duration: {duration}; 
             --border: {border};
-            animation-delay: -{ step * duration / denom}s;"/>
+            animation-delay: -{ step * duration / denom}s;">
+            </div>
         {/each}
-        <div class="circle-core"/>
+        <div class="circle-core"></div>
     </div>
 </div>
 {/if}

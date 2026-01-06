@@ -15,12 +15,12 @@
         <div class="hero-body">
             <div class="">
                 {#if title && loadState}
-                <p transition:fade = {{ duration: 200 }} class="title p-3 box has-background-dark has-text-primary is-size-1 is-size-2-mobile shadow">
+                <p transition:fade = {{ duration: 200 }} class="title p-3 box block mb-4 has-background-dark has-text-primary is-size-1 is-size-2-mobile shadow">
                     {title}
                 </p>
                 {/if}
                 {#if subtitle && loadState}
-                <p transition:fade = {{ duration: 200, delay: 50 }} class="subtitle p-3 mt-1 box has-background-dark has-text-primary is-size-2 is-size-3-mobile shadow">
+                <p transition:fade = {{ duration: 200, delay: 50 }} class="subtitle p-3 mt-1 box block has-background-dark has-text-primary is-size-2 is-size-3-mobile shadow">
                     {subtitle}
                 </p>
                 {/if}
