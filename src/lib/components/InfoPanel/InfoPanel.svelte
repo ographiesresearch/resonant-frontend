@@ -9,14 +9,14 @@
     export let selected;
     export let marker;
 
-    function closeInfo() {
+    const closeInfo = () => {
         marker.remove();
         marker = undefined;
         add = undefined;
         selected = undefined;
     }
     
-    function contextSearch(context, string) {
+    const contextSearch = (context, string) => {
         let results;
         try {
             results = context.filter(function(entry) {
@@ -28,7 +28,7 @@
         return results;
     }
 
-    function parseContext(gcr){
+    const parseContext = (gcr) => {
         let address;
         if ('place_type' in gcr) {
             if (gcr.place_type.includes("poi") & 'address' in gcr) {
@@ -72,35 +72,35 @@ $: qualifying_pct = li_native_pct + nrg_comm_pct;
 {#if add || selected }
 <div transition:slide|global = {{ duration: 500 }} class="info-box columns p-3">
     <div class="column is-offset-three-fifths is-two-fifths">
-        <div id="address" class="box block shadow sticky-top">
+        <div id="address" class="box block shadow sticky-top has-background-white">
             <button on:click={closeInfo} class="button span tag icon-text is-danger shadow is-medium block">
                 <span>Close</span>
             </button>
                 <div>
                 {#if add?.address}
-                    <p class="title">{add.address}</p>
+                    <p class="title has-text-dark">{add.address}</p>
                 {/if}
                 {#if add?.muni}
-                    <p class="{(add.address) ? "subtitle" : "title"}">{add.muni}, {#if add.state}{add.state}{/if} {#if add.zip}{add.zip}{/if}</p>
+                    <p class="{(add.address) ? "subtitle" : "title has-text-dark"}">{add.muni}, {#if add.state}{add.state}{/if} {#if add.zip}{add.zip}{/if}</p>
                 {/if}
                 <div class="buttons has-text-white">
-                <span class="button-passive button icon-text shadow block
-                    {li_native  ? 'has-background-success' : 'has-background-danger'}
-                    {priority ? 'priority' : null}">
-                        <IconStatus status={selected?.li_native}/>
-                        <span>Low-Income or Native Land</span>
-                </span>
-                <span class="button-passive button icon-text shadow block
-                    {selected?.nrg_comm ? 'has-background-success' : 'has-background-danger'}">
-                        <IconStatus status={selected?.nrg_comm}/>
-                        <span>Energy Community</span>
-                </span>
+                    <button class="button-passive button icon-text shadow
+                        {li_native  ? 'has-background-success' : 'has-background-danger'}
+                        {priority ? 'priority' : null}">
+                            <IconStatus status={selected?.low_inc || selected?.native}/>
+                            <span>Low-Income or Native Land</span>
+                    </button>
+                    <button class="button-passive button icon-text shadow
+                        {selected?.nrg_comm ? 'has-background-success' : 'has-background-danger'}">
+                            <IconStatus status={selected?.nrg_comm}/>
+                            <span>Energy Community</span>
+                    </button>
                 </div>
-                <div class="block box">
+                <div class="block box has-background-light has-text-black">
                     {#if qualifying_pct > 0}
-                        This site is eligible for up to <code class="has-background-success has-text-white">{qualifying_pct}%</code> additional income tax credit on top of the base <code class="has-text-grey-darker">30%</code> credit.
+                        This site is eligible for up to <code class="has-background-success has-text-white">{qualifying_pct}%</code> additional income tax credit on top of the base <code class="has-background-white has-text-grey-darker">30%</code> credit.
                     {:else}
-                        This site is <span class="has-text-white has-background-danger pl-2 pr-2 pt-1 pb-1">not eligible</span> for additional income tax credit on top of the base <code class="has-text-grey-darker">30%</code>.
+                        This site is <span class="has-text-white has-background-danger pl-2 pr-2 pt-1 pb-1">not eligible</span> for additional income tax credit on top of the base <code class="has-background-white has-text-grey-darker">30%</code>.
                     {/if}
                     {#if priority }
                         It meets the IRS's <span class="has-text-grey-darker priority pl-2 pr-2 pt-1 pb-1">alternative selection criteria</span>.

@@ -4,7 +4,7 @@
     export let gcResult;
     export let lngLat;
 
-    async function reverseGeocode(ll) {
+    const reverseGeocode = async (ll) => {
         const endpoint = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'
         const f = 'json'
         const query = `${endpoint}${ll.lng},${ll.lat}.${f}?country=us&access_token=${mapbox.accessToken}`;

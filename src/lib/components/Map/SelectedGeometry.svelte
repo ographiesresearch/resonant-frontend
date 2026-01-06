@@ -6,7 +6,7 @@
     export let loadingState;
     import sources from '$lib/config/sources.json';
 
-    async function addGeometry(ll) {
+    const addGeometry = async (ll) => {
         let queryLayer;
         Object.entries(sources).forEach((layer) => {
             const [name, p] = layer;

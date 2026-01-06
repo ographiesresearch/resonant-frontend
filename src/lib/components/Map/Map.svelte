@@ -38,7 +38,7 @@
         getMap: () => map
     });
 
-    function flyToLngLat(ll){
+    const flyToLngLat = (ll) => {
         map.flyTo({
             center: ll,
             zoom: (map.getZoom() > props.resultZoom) ? map.getZoom() : props.resultZoom,
@@ -47,7 +47,7 @@
         });
     }
     
-    function colorPicker(color) {
+    const colorPicker = (color) => {
         if (color === "primary") {
             color = colors.primary;
         } else if (color === "success") {
@@ -58,7 +58,7 @@
         return color;
     }
 
-    function addSources(sources) {
+    const addSources = (sources) => {
         Object.entries(sources).forEach((layer) => {
             const [name, p] = layer;
             map.addSource(name, {
@@ -209,7 +209,15 @@
 <InfoPanel bind:marker bind:gcResult bind:selected/>
 {/if}
 
-<style>
+<style lang="scss">
+
+    #map {
+        height: calc(100% - var(--bulma-navbar-height));
+        width: 100vw;
+        position: fixed;
+        top: var(--bulma-navbar-height);
+    }
+
     .non-interactive {
         pointer-events: none;
     }
