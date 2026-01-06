@@ -6,7 +6,7 @@
     export let descState = false;
 
     let activeTab: string;
-    function toggleCriterion(tabValue) {
+    const toggleCriterion = (tabValue) => {
         if (tabValue === activeTab) {
             activeTab = undefined;
             descState = !descState;
@@ -16,7 +16,7 @@
         }
     }
     let source = false;
-    function toggleSource() {
+    const toggleSource = () => {
         source = !source;
     }
 </script>

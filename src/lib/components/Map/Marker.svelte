@@ -9,7 +9,7 @@
     export let lngLat;
     export let marker;
 
-    function addMarker(ll) {
+    const addMarker = (ll) => {
         (marker !== undefined) ? marker.remove() : null;
         if (ll !== undefined) {
             marker = new mapbox.Marker({

@@ -1,5 +1,5 @@
 <script>
-    function handleClick() {
+    const handleClick = () => {
       document.getElementById("navMenu").classList.toggle('is-active');
     }
 </script>

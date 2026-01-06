@@ -15,7 +15,7 @@
 </script>
 
 {#if loadingState}
-<div :fade={{duration: 800}} class="wrapper">
+<div class="wrapper">
     <div transition:fly={{ 
         y: flyInProps.distance, 
         duration: flyInProps.duration 
@@ -24,9 +24,10 @@
             <div class="ripple-wave" style="
             --duration: {duration}; 
             --border: {border};
-            animation-delay: -{ step * duration / denom}s;"/>
+            animation-delay: -{ step * duration / denom}s;">
+            </div>
         {/each}
-        <div class="circle-core"/>
+        <div class="circle-core"></div>
     </div>
 </div>
 {/if}
@@ -42,7 +43,6 @@
 		right: 0;
 		top: 0;
 		bottom: 0;
-		/* color: rebeccapurple; */
 		background: #363636BB;
     }
 
@@ -71,7 +71,7 @@
     }
 
     .rippler .circle-core {
-        background: $danger;
+        background: var(--bulma-danger);
         top: 30px;
         left: 30px;
         width: 20px;
@@ -85,7 +85,7 @@
             width: 8px;
             height: 8px;
             opacity: 0.8;
-            border-color: $danger;
+            border-color: var(--bulma-danger);
         }
         10% {
             top: 36px;
@@ -93,7 +93,7 @@
             width: 8px;
             height: 8px;
             opacity: 0.8;
-            border-color: $danger;
+            border-color: var(--bulma-danger);
         }
         15% {
             top: 36px;
@@ -101,7 +101,7 @@
             width: 8px;
             height: 8px;
             opacity: 0.8;
-            border-color: $danger;
+            border-color: var(--bulma-danger);
         }
         100% {
             top: 0;
@@ -109,7 +109,7 @@
             width: 80px;
             height: 80px;
             opacity: 0.5;
-            border-color: $primary;
+            border-color: var(--bulma-primary);
         }
     }
 </style>

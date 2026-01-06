@@ -1,7 +1,8 @@
 <script>
     import Navbar from '$lib/components/Navbar/Navbar.svelte';
     import site_data from '$lib/config/instance.json';
-    import "$lib/styles/style.css";
+    import "$lib/styles/style.scss";
+    import "@fontsource-variable/figtree";
     import favicon from '$lib/favicon.png';
 </script>
 <svelte:head>

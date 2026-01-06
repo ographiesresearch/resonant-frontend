@@ -1,7 +1,7 @@
 <script>
     export let name;
     export let path;
-    function handleClick() {
+    const handleClick = () => {
       document.getElementById("navMenu").classList.toggle('is-active');
     }
 </script>
