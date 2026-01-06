@@ -2,14 +2,13 @@
 	"name": "resonant-frontend",
 	"version": "1.1.1",
 	"scripts": {
-		"css-build": "node-sass --omit-source-map-url src/lib/styles/style.scss src/lib/styles/style.css",
-		"css-watch": "npm run css-build -- --watch",
-		"dev": "npm run css-build & vite dev & npm run css-watch",
-		"build": "npm run css-build & vite build",
+		"dev": "vite dev",
+		"build": "vite build",
 		"preview": "vite preview"
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource-variable/figtree": "^5.2.10",
 		"@mapbox/mapbox-gl-geocoder": "^5.1.2",
 		"@sveltejs/adapter-netlify": "^5.2.4",
 		"@sveltejs/kit": "^2.49.3",
