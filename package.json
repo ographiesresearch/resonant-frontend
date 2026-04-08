@@ -14,7 +14,7 @@
 		"@sveltejs/kit": "^2.53.4",
 		"@sveltejs/vite-plugin-svelte": "^6.2.4",
 		"bulma": "^1.0.4",
-		"mapbox-gl": "^3.17.0",
+		"mapbox-gl": "^3.21.0",
 		"marked": "^17.0.1",
 		"sass": "^1.97.2",
 		"svelte": "^5.53.8",
