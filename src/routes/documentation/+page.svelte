@@ -9,18 +9,31 @@
     import geographies from '$lib/config/geographies.json';
     let vars = [];
 
-    Object.entries(variables).forEach((v) => {
+    Object.entries(variables || {}).forEach((v) => {
         let d = v[1]
+        
+        if (!d) return; 
+        
         let geos = [];
-        d.description = marked(d.description);
-        if(typeof(d.geographies[0]) === "string") {
+
+        if (d.description) {
+            d.description = marked(d.description);
+        }
+
+       if (d.geographies && Array.isArray(d.geographies) && typeof d.geographies[0] === "string") {
             d.geographies.forEach((g) => {
-                geos.push(geographies[g]);
-            });
-            d.geographies = geos;
+                // Ensure geographies[g] exists before pushing it
+                if (geographies && geographies[g]) {
+                    geos.push(geographies[g]);
+                }
+                });
+                d.geographies = geos;
         } 
-        d.citation = marked(d.citation);
-        d.description = marked(d.description);
+        
+        if (d.citation) {
+            d.citation = marked(d.citation);
+        }
+        
         vars.push(d);
     });
 </script>

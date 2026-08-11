@@ -14,7 +14,7 @@
       </div>
       <div id="navMenu" class="navbar-menu has-background-dark">
         <div class="navbar-start">
-        {#if pages}
+        {#if pages && typeof pages === 'object' && !Array.isArray(pages)}
           {#each Object.entries(pages) as [name, path]}
             <NavbarItem name={name} path={path}/>
           {/each}
