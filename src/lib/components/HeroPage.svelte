@@ -9,8 +9,7 @@
     onMount(() => loadState = true);
 </script>
 
-<section class="hero {(background) ? 'hero-bg-image' : null} is-fullheight-with-navbar"
-    style={(background) ? `background-image: url(${bg});` : null}>
+<section class="hero">
     <div class="container">
         <div class="hero-body">
             <div class="">
@@ -19,6 +18,7 @@
                     {title}
                 </p>
                 {/if}
+                <enhanced:img src={bg} alt="Image of school busses parked under two large solar arrays in a park-and-ride lot." class="shadow" style="border-radius: 1rem" sizes="min(1280px, 100vw)"/>
                 {#if subtitle && loadState}
                 <p transition:fade = {{ duration: 200, delay: 50 }} class="subtitle p-3 mt-1 box block has-background-dark has-text-primary is-size-2 is-size-3-mobile shadow">
                     {subtitle}
