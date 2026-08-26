@@ -18,7 +18,7 @@
 		"mapbox-gl": "^3.21.0",
 		"marked": "^18.0.9",
 		"node-gyp": "^12.4.0",
-		"sass": "^1.99.0",
+		"sass": "^1.102.0",
 		"svelte": "^5.56.8",
 		"svelte-device-info": "^1.0.6",
 		"vite": "^8.2.1"
